@@ -1,6 +1,6 @@
 "use strict";
 
-var stream = require("readable-stream");
+var stream = require("stream");
 
 function DuplexWrapper(options, writable, readable) {
   if (typeof readable === "undefined") {

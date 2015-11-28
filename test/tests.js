@@ -1,7 +1,7 @@
 "use strict";
 
 var assert = require("assert");
-var stream = require("readable-stream");
+var stream = require("stream");
 
 var duplexer2 = require("../");
 
@@ -158,25 +158,6 @@ describe("duplexer2", function() {
     readable.on("error", function() {});
 
     readable.emit("error", Error("testing"));
-  });
-
-  it("should work with streams1", function(done) {
-    var readable1 = new stream;
-    readable1.readable = true;
-    readable1._read = function() {}
-    var duplex = duplexer2(writable, readable1);
-
-    duplex.on("readable", function(e) {
-      e = duplex.read()
-      assert.strictEqual(e.toString(), "well hello there");
-
-      return done();
-    });
-
-    // making sure we're on compat mode.
-    readable1.on('end', function() {})
-
-    readable1.push("well hello there");
   });
 
   it("should export the DuplexWrapper constructor", function() {
