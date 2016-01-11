@@ -1,11 +1,11 @@
-# duplexer2 [![Build Status](https://travis-ci.org/deoxxa/duplexer2.svg?branch=master)](https://travis-ci.org/deoxxa/duplexer2) [![Coverage Status](https://coveralls.io/repos/deoxxa/duplexer2/badge.svg?branch=master&service=github)](https://coveralls.io/github/deoxxa/duplexer2?branch=master)
+# duplexer3 [![Build Status](https://travis-ci.org/floatdrop/duplexer3.svg?branch=master)](https://travis-ci.org/floatdrop/duplexer3) [![Coverage Status](https://coveralls.io/repos/floatdrop/duplexer3/badge.svg?branch=master&service=github)](https://coveralls.io/github/floatdrop/duplexer3?branch=master)
 
-Like [duplexer](https://github.com/Raynos/duplexer) but using Streams3
+Like [duplexer2](https://github.com/deoxxa/duplexer2) but using Streams3 without readable-stream dependency
 
 ```javascript
 var stream = require("stream");
 
-var duplexer2 = require("duplexer2");
+var duplexer3 = require("duplexer3");
 
 var writable = new stream.Writable({objectMode: true}),
     readable = new stream.Readable({objectMode: true});
@@ -29,7 +29,7 @@ writable.once("finish", function() {
   }, 500);
 });
 
-var duplex = duplexer2(writable, readable);
+var duplex = duplexer3(writable, readable);
 
 duplex.on("data", function(e) {
   console.log("got data", JSON.stringify(e));
@@ -73,22 +73,22 @@ works the same.
 [Available via `npm`](https://docs.npmjs.com/cli/install):
 
 ```
-$ npm i duplexer2
+$ npm i duplexer3
 ```
 
 ## API
 
-### duplexer2
+### duplexer3
 
 Creates a new `DuplexWrapper` object, which is the actual class that implements
 most of the fun stuff. All that fun stuff is hidden. DON'T LOOK.
 
 ```javascript
-duplexer2([options], writable, readable)
+duplexer3([options], writable, readable)
 ```
 
 ```javascript
-const duplex = duplexer2(new stream.Writable(), new stream.Readable());
+const duplex = duplexer3(new stream.Writable(), new stream.Readable());
 ```
 
 Arguments

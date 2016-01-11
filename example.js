@@ -2,7 +2,7 @@
 
 var stream = require("stream");
 
-var duplexer2 = require("./");
+var duplexer3 = require("./");
 
 var writable = new stream.Writable({objectMode: true}),
     readable = new stream.Readable({objectMode: true});
@@ -26,7 +26,7 @@ writable.once("finish", function() {
   }, 500);
 });
 
-var duplex = duplexer2(writable, readable);
+var duplex = duplexer3(writable, readable);
 
 duplex.on("data", function(e) {
   console.log("got data", JSON.stringify(e));

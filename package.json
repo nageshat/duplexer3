@@ -1,5 +1,5 @@
 {
-  "name": "@floatdrop/duplexer2",
+  "name": "duplexer3",
   "version": "0.1.4",
   "description": "Like duplexer but using streams3",
   "files": [
@@ -8,7 +8,7 @@
   "scripts": {
     "test": "mocha -R tap"
   },
-  "repository": "deoxxa/duplexer2",
+  "repository": "floatdrop/duplexer3",
   "keywords": [
     "duplex",
     "duplexer",
